@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.input-control {
+  @apply px-4 py-2 text-lg rounded outline-none bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:placeholder-gray-500 focus:border-primary border border-gray-300 dark:border-gray-700;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.ql-editor {
+  overflow: scroll;
+  background: #fff;
+  color: #333;
+  min-height: 10rem !important;
+  max-height: 20rem !important;
+  font-size: 1.2rem;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.dark .ql-editor {
+  background: #1f2937;
+  color: #fff;
+}
+
+.dark .ql-snow .ql-picker-label {
+  color: #fff;
+}
+
+.dark .ql-snow.ql-toolbar button,
+.dark .ql-snow .ql-toolbar button {
+  background: #bdbbbb !important;
 }
