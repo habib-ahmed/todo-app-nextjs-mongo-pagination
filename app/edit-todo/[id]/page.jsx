@@ -9,9 +9,11 @@ export default async function EditTodo({ params }) {
 
   return (
     <>
-      <Link href={"/"} className="block p-2 pl-0 mb-4">
-        {"<"} Back
-      </Link>
+      <div>
+        <Link href={"/"} className="block p-2 pl-0 mb-4">
+          {"<"} Back
+        </Link>
+      </div>
       <EditTodoForm id={id} title={title} description={description} />
     </>
   );

@@ -47,9 +47,9 @@ export default async function Home({ searchParams }) {
 
   return (
     <>
-      <div className="text-3xl font-bold p-4 text-center">
+      {/* <div className="text-3xl font-bold p-4 text-center">
         <p>Search Todo...</p>
-      </div>
+      </div> */}
 
       {data.items.map((todo) => (
         <div
@@ -64,7 +64,8 @@ export default async function Home({ searchParams }) {
                 ? todo.title.substr(0, 40) + "..."
                 : todo.title}
             </h2>
-            <p
+
+            <div
               dangerouslySetInnerHTML={{
                 __html:
                   todo.description.length > 110

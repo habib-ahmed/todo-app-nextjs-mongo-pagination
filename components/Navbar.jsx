@@ -13,7 +13,7 @@ export default function Navbar() {
           Todo<span className="text-primary ml-2">App.</span>
         </Link>
 
-        <nav className="flex gap-2 text-lg font-medium">
+        <div className="flex gap-2 text-lg font-medium">
           {navLinks.map(({ name, path }, index) => (
             <Link
               key={index}
@@ -25,7 +25,7 @@ export default function Navbar() {
               {name}
             </Link>
           ))}
-        </nav>
+        </div>
       </div>
     </header>
   );
