@@ -64,13 +64,14 @@ export default async function Home({ searchParams }) {
                 ? todo.title.substr(0, 40) + "..."
                 : todo.title}
             </h2>
-
-            <p>
-              {todo.description.length > 110
-                ? todo.description.substr(0, 110).replace(/<[^>]+>/g, "") +
-                  "..."
-                : todo.description.replace(/<[^>]+>/g, "")}
-            </p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html:
+                  todo.description.length > 110
+                    ? todo.description.substr(0, 110) + "..."
+                    : todo.description,
+              }}
+            />
           </div>
 
           <div className="flex gap-1">
