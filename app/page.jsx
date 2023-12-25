@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Eye, PenSquare } from "lucide-react";
 import RemoveBtn from "@/components/RemoveBtn";
@@ -13,8 +12,7 @@ async function getData(perPage, page) {
     const items = await Todo.find()
       .sort({ createdAt: -1 })
       .skip(perPage * (page - 1))
-      .limit(perPage)
-      .exec();
+      .limit(perPage);
 
     const itemCount = await Todo.countDocuments();
 
@@ -28,7 +26,7 @@ async function getData(perPage, page) {
 export default async function Home({ searchParams }) {
   let page = parseInt(searchParams.page, 10);
   page = !page || page < 1 ? 1 : page;
-  const perPage = 3;
+  const perPage = 2;
   const data = await getData(perPage, page);
   // console.log(data);
 
@@ -40,7 +38,7 @@ export default async function Home({ searchParams }) {
   const isPageOutOfRange = page > totalPages;
 
   const pageNumbers = [];
-  const offsetNumber = 3;
+  const offsetNumber = 2;
   for (let i = page - offsetNumber; i <= page + offsetNumber; i++) {
     if (i >= 1 && i <= totalPages) {
       pageNumbers.push(i);
@@ -60,22 +58,19 @@ export default async function Home({ searchParams }) {
             todo.isCompleted && "text-green-400"
           }`}
         >
-          <div className="flex gap-5">
-            <Image src="/next.svg" alt="logo" width={100} height={100} />
-            <div>
-              <h2 className={`font-semibold text-2xl`}>
-                {todo.title.length > 40
-                  ? todo.title.substr(0, 40) + "..."
-                  : todo.title}
-              </h2>
+          <div>
+            <h2 className={`font-semibold text-2xl`}>
+              {todo.title.length > 40
+                ? todo.title.substr(0, 40) + "..."
+                : todo.title}
+            </h2>
 
-              <p>
-                {todo.description.length > 110
-                  ? todo.description.substr(0, 110).replace(/<[^>]+>/g, "") +
-                    "..."
-                  : todo.description.replace(/<[^>]+>/g, "")}
-              </p>
-            </div>
+            <p>
+              {todo.description.length > 110
+                ? todo.description.substr(0, 110).replace(/<[^>]+>/g, "") +
+                  "..."
+                : todo.description.replace(/<[^>]+>/g, "")}
+            </p>
           </div>
 
           <div className="flex gap-1">
