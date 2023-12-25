@@ -16,13 +16,9 @@ export async function PUT(request, { params }) {
   await connectToDatabase();
   const { id } = params;
 
-  const {
-    newTitle: title,
-    newDescription: description,
-    newThumb: thumbnail,
-  } = await request.json();
+  const { newTitle: title, newDescription: description } = await request.json();
 
-  await Todo.findByIdAndUpdate(id, { title, description, thumbnail });
+  await Todo.findByIdAndUpdate(id, { title, description });
 
   return NextResponse.json(
     { message: "Todo updated successfully" },

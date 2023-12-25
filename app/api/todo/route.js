@@ -6,8 +6,8 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   await connectToDatabase();
 
-  const { title, description, thumbnail, isCompleted } = await request.json();
-  await Todo.create({ title, description, thumbnail, isCompleted });
+  const { title, description, isCompleted } = await request.json();
+  await Todo.create({ title, description, isCompleted });
 
   return NextResponse.json(
     { message: "Todo Created Successfully" },

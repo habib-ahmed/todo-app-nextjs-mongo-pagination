@@ -1,6 +1,6 @@
 export const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Add Todo", path: "/add-todo" },
+  { name: "Create Todo", path: "/add-todo" },
 ];
 
 export const QuillModules = {

@@ -4,7 +4,6 @@ const todoSchema = new Schema(
   {
     title: { type: String, required: true },
     description: { type: String, required: false },
-    thumbnail: { type: String, required: false },
     isCompleted: { type: Boolean, default: false },
   },
   {
